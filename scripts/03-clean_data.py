@@ -23,6 +23,10 @@ df = df.drop([0,1]).reset_index(drop=True)
 df.rename(columns={'Price': 'Date'}, inplace=True)
 df['Date'] = pd.to_datetime(df['Date'])
 df['Adj Close'] = pd.to_numeric(df['Adj Close'])
+df.set_index('Date', inplace=True)
+df.sort_index(inplace=True)
+df = df.resample('M').last().reset_index()
+df.index = df.index + pd.DateOffset(days=1)
 df['Log Return'] = np.log(df['Adj Close']).diff()
 df = df[['Date', 'Adj Close', 'Log Return']]
 df['Log Return'].fillna(0, inplace=True)
@@ -31,6 +35,7 @@ df.to_parquet('../data/02-analysis_data/sp500.parquet')
 #### Clean Fama-French data and construct Value Spread ####
 df = pd.read_csv('../data/01-raw_data/Value_Weight_Average_of_BE_ME.csv')
 df['Date'] = pd.to_datetime(df['Date'], format='%Y%m')
+df.sort_values('Date', inplace=True)
 #The spread of BM of large caps, as per Asness (2024)
 df['Value Spread'] = df['BIG HiBM'] / df['BIG LoBM']
 df = df[['Date', 'Value Spread']]
