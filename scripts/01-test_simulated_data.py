@@ -6,10 +6,10 @@
 # Contact: aman.rana@mail.utoronto.ca
 # License: MIT
 # Pre-requisites:
-  # - `pandas` must be installed (pip install pandas)
-    # - `numpy` must be installed (pip install numpy)
-    # - `arch` must be installed (pip install arch)
-  # - 00-simulate_data.py must have been run
+#  - `pandas` must be installed (pip install pandas)
+#  - `numpy` must be installed (pip install numpy)
+#  - `arch` must be installed (pip install arch)
+#  -  00-simulate_data.py must have been run
 
 #### Workspace setup ####
 import pandas as pd
