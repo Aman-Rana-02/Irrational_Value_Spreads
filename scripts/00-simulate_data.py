@@ -18,7 +18,7 @@ np.random.seed(304)
 #### Simulate data ####
 # We will simulate two instances of a timeseries of returns from 1927 to 2024
 # The first timeseries will be returns in an efficient market, where prices are a random walk
-# The second timeseries will be returns in an inefficient market, where returns are influenced by a random walk
+# The second timeseries will be returns in an inefficient market, where returns have some trend
 
 efficient_df = pd.DataFrame()
 efficient_df['date'] = pd.date_range(start='1/1/1927', end='22/11/2024', freq='M')
@@ -26,13 +26,13 @@ inefficient_df = efficient_df.copy()
 
 # Simulate efficient market prices
 # Efficient market returns are random, making price a random walk
-efficient_returns = np.random.normal(0, 0.01, len(efficient_df))  # Small returns with standard deviation of 1%
+efficient_returns = np.random.normal(0, 0.01, len(efficient_df))
 efficient_prices = 100 * (1 + efficient_returns).cumprod()
 efficient_df['price'] = efficient_prices
 
 # Simulate inefficient market prices
 # Inefficient market returns are influenced by trends in the random walk
-inefficient_returns = np.random.normal(0, 0.01, len(inefficient_df)) + 0.005  # Add a bias for trending returns
+inefficient_returns = np.random.normal(0, 0.01, len(inefficient_df)) + 0.005
 inefficient_prices = 100 * (1 + inefficient_returns).cumprod()
 inefficient_df['price'] = inefficient_prices
 
