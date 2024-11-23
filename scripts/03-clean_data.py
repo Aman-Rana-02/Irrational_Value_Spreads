@@ -25,7 +25,7 @@ df['Date'] = pd.to_datetime(df['Date'])
 df['Adj Close'] = pd.to_numeric(df['Adj Close'])
 df['Log Return'] = np.log(df['Adj Close']).diff()
 df = df[['Date', 'Adj Close', 'Log Return']]
-df.fillna(0, inplace=True)
+df['Log Return'].fillna(0, inplace=True)
 df.to_parquet('../data/02-analysis_data/sp500.parquet')
 
 #### Clean Fama-French data and construct Value Spread ####
