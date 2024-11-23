@@ -23,5 +23,6 @@ data.to_csv(filename, index=True)
 
 print(f"Data saved to {filename}")
 
-# Fama-French Value (Book-To-Market) Portfolio Returns are downloaded from the following link:
+# Fama-French 2x3 Size (ME) and Value (Book-To-Market) Portfolios are downloaded from the following link:
 # https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html
+# I manually extract the Value Weighted Average BE/ME from the 2x3 Size and Value Portfolio CSV.
