@@ -84,5 +84,14 @@ plt.legend()
 plt.savefig('../figs/Simulated Evolutionary Market Rolling Inefficiency.png')
 
 value_spread = pd.read_parquet('../data/02-analysis_data/value_spread.parquet')
+value_spread = value_spread[value_spread['Date'] >= '1950-01-01']
+plt.figure(figsize=(10, 5))
+plt.plot(value_spread['Date'], value_spread['Value Spread'], label='Value Spread')
+plt.title('Value Spread')
+plt.xlabel('Date')
+plt.ylabel('Value Spread')
+plt.legend()
+plt.savefig('../figs/Value Spread.png')
+
 value_inefficiency_df = pd.merge(spy_df[['Date', 'Market Inefficiency']], value_spread, on='Date', how='inner')
 value_inefficiency_df.to_parquet('../data/02-analysis_data/efficiency_and_value.parquet')

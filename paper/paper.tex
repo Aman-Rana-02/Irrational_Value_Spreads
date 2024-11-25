@@ -1,0 +1,65 @@
+\documentclass[11pt,a4paper,english]{article}
+\usepackage{natbib}  % Adds support for different citation styles
+\bibliographystyle{chicago}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{blindtext}
+\usepackage[nodayofweek,level]{datetime}
+\newdate{date}{19}{10}{2024}
+\date{\displaydate{date}}
+% Use the geometry package to decrease margins
+\usepackage[a4paper,margin=1in]{geometry} % Adjust '1in' to change the margin size
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\doublespacing
+
+
+
+\title{Irrational Value Spreads: Fluctuating Market Efficiency}
+\author{%
+  Aman Rana\thanks{I thank Professor Charles Martineau and Da Bois [FILL]}\\
+  % \small Department of Computer Science\\
+  \small University of Toronto\\
+  \small\texttt{aman.rana@mail.utoronto.ca}
+}
+
+\begin{document}
+  \maketitle
+
+  \begin{abstract}
+    \noindent Extending the work of \citep{boguth_2023}, we propose a method to measure the level of market inefficiency.
+    We find that the market is not uniformly efficient and goes through periods of higher inefficiency reverting to efficiency in-line with \cite{lo_amh}'s adaptive 
+    market hypothesis. We find that the value spread—the ratio of expensive to cheap stock valuations—is cointegrated with market inefficiency. 
+    By demonstrating that wider value spreads align with greater market inefficiency, we can empirically support \citet{asness_2024}'s intuition 
+    that high spreads during events such as the dot-com bubble and 2019 reflect mispricing rather than fundamental changes. 
+    This evidence strengthens the case that the value premium is still alive but has been masked by market inefficiency. 
+    We also find that the market's temporary inefficiencies have grown more persistent over time.
+  \end{abstract}
+
+  \newpage
+
+  \newpage
+  \input{introduction}
+
+  \newpage
+  \input{data}
+
+  \input{unbiasedness_regressions}
+  
+  \newpage
+  \input{results}
+
+  \newpage
+  \input{conclusion}
+
+  \newpage
+  \bibliographystyle{chicago}
+  \bibliography{bibliography}
+
+  \newpage
+  \input{appendix}
+
+\end{document}

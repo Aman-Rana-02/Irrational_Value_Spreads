@@ -1,0 +1,66 @@
+\section{Introduction}
+% A comment on market efficiency.
+% - Why is efficiency important
+% - What is Value? What is its relation to market efficiency?
+% A comment on current scoring systems of market efficiency.
+% A comment on Boguth paper's method
+% We apply the $Beta\_SSE$ score and find:
+% - The market is not uniformly efficient
+% - The market goes through periods of inefficiency and reverts to efficiency.
+% - The market has been increasingly inefficient in the last decade. 
+% - The market inefficiency is cointegrated with the value spread.
+
+% \citet{fama_random_walk}'s efficient market hypothesis is the prevailing model of the market.
+%  Simply, in its strongest form, stock prices reflect all available information, public and private. In practice, the market is believed 
+%  to be semi-strong efficient, where prices reflect all public information. Market efficiency is generally tested by testing the random-walk 
+%  nature of stock prices (\cite{fama_random_walk} \cite{lim_brooks_2010}). The efficiency of a market is important because of its relation to 
+%  the compensation of risk. Investors should be compensated for taking on systematic risk, but only in an efficient market. 
+%  An example is the classical Value risk factor from \cite{fama_french_1993}, which argues investors are compensated for holding firms 
+%  with a higher book-to-market ratio, reflecting the higher risks associated with undervalued or distressed companies.
+%  \citet{asness_2024} argues that the market has become less efficient, and uses the value spread as a proxy for market efficiency to show this, where the
+%  value spread is the ratio of expensive to cheap stock valuations. He shows that value spreads have been increasing for the last decade, and uses this as evidence that the market is less efficient.
+% This conclusion relies on the assumption that abnormally high value spreads are detached from fundamentals, which he argues is the case, pointing at \citet{maloney_moskowitz_2020}
+% and other works, which are not able to robustly explain the high value spreads. A proof by contradiction.
+
+% We are able to independently show a timeseries of the level of market efficiency, and then show its relationship with the value spread.
+% We arrive at the same conclusion, however, from a market efficiency first approach.
+
+% \citet{boguth_2023} uses unbiasedness regressions to show the efficiency of the market around events. We first use a similar method
+% to show the market is generally efficient across a 3 year window. We then construct a score, called \textbf{$Beta\_SSE$},
+% which measures the level of market efficiency at a point-in-time by using a plot of the Betas from these unbiasedness regressions.
+% By taking a rolling window of unbiasedness regressions, we get a timeseries of the relative level of market efficiency. 
+% We find that the market is not uniformly efficient, and goes through periods of higher inefficiency reverting to efficiency. 
+% We also find that the market has been increasingly inefficient in the last decade. We compare the timeseries of market inefficiency 
+% to the timeseries of the value spread, and find that they are cointegrated.
+
+\indent \citet{fama_random_walk}'s efficient market hypothesis posits that markets incorportate all information rationally and instantaneously. While 
+this is an extreme assumption, it is established that markets tend to some form of efficiency. %\textbf{DO I NEED TO FIND PAPERS FOR THIS?}
+In an efficient market, investors are compensated for taking on systematic risk, therefore, understanding the level of 
+market efficiency can be used to asses whether market participants will be rewarded fairly for the risks they bear.
+
+"Value" in classical factor investing refers to stocks with high book-to-market ratios as per \citet{fama_french_1993}, typically considered undervalued or distressed. 
+Its relationship with market efficiency is critical: if markets are efficient, an investor should be rewarded for holding a portfolio of under-valued stocks. 
+However, when inefficiencies arise, value stocks may become mispriced, with the market willing to pay more for already 'expensive' stocks, and
+less for already 'cheap' stocks. In these periods, investors may consider that the definition of value has changed, the subjective measure of 
+'expensive' and 'cheap' has shifted. We can define a value spread as the ratio of the value of expensive stocks to the value of cheap stocks.
+In this paper we show that generally, periods of inflated value spreads are correlated with increasing inefficiency,
+therefore we suggest that abnormal value spreads are not reflective of a fundamental change in the market, but rather a mispricing.
+
+Existing methods for measuring market efficiency typically focus on testing whether stock prices follow a random walk
+(\cite{fama_random_walk}, \cite{lim_brooks_2010}). However, these methods often fail to capture variations in the level of efficiency over time.
+A more dynamic approach is needed to reflect the market’s changing behavior.
+
+\citet{boguth_2023} uses unbiasedness regressions to examine price informativeness around FOMC meetings. 
+This method visually shows us how prices adjust to information flow, in speed, and under or overreaction, using $R^2$s and $\beta$s over the unbiasedness regression window,
+which is useful in an approach for measuring efficiency.
+
+Building on this, we introduce the \textit{$Beta\_SSE$} score, which measures market efficiency at a point in time. 
+By applying unbiasedness regressions within a rolling window, and constructing the \textit{$Beta\_SSE$} representation, we create a time series that tracks the level of market 
+efficiency. \newline
+\newline
+Our findings show that:
+\begin{itemize}
+    \item The market is not uniformly efficient. Instead, it experiences cycles of inefficiency followed by reversion to efficiency.
+    \item Over the last decade, inefficiency has been increasing, suggesting that the market has become less adept at incorporating available information into prices on longer time-scales.
+    \item Furthermore, this rising inefficiency is cointegrated with the value spread, indicating a strong link between the weakness of the value premium and market inefficiency.
+\end{itemize}
