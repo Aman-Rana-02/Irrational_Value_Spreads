@@ -1,5 +1,5 @@
 #### Preamble ####
-# Purpose: Tests SP500 data for nan values. Generates visual plots to check for any anomalies in market and Value Spread
+# Purpose: Tests Data for nan values and sorted Date. Generates visual plots to check for any anomalies in market and Value Spread
 # data.
 # Author: Aman Rana
 # Date: 23 November 2024
@@ -21,6 +21,9 @@ assert sp500['Log Return'].isnull().values.any() == False, "Data contains nan va
 value_spread = pd.read_parquet('../data/02-analysis_data/value_spread.parquet')
 
 assert value_spread['Value Spread'].isnull().values.any() == False, "Data contains nan values"
+
+assert sp500.sort_values('Date')['Date'].equals(sp500['Date']), "Data is not sorted by date"
+assert value_spread.sort_values('Date')['Date'].equals(value_spread['Date']), "Data is not sorted by date"
 
 #### Visual plots ####
 plt.figure(figsize=(10, 5))

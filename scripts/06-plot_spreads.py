@@ -1,3 +1,15 @@
+#### Preamble ####
+# Purpose: Plots the Value Spread and Market Inefficiency timeseries
+# Author: Aman Rana
+# Date: 24 November 2024
+# Contact: aman.rana@mail.utoronto.ca
+# License: MIT
+# Pre-requisites:
+#   - `pandas` must be installed (pip install pandas)
+#   - `matplotlib` must be installed (pip install matplotlib)
+
+#### Workspace setup ####
+
 import pandas as pd
 import matplotlib.pyplot as plt
 

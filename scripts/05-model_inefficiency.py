@@ -5,6 +5,12 @@
 # Contact: aman.rana@mail.utoronto.ca
 # License: MIT
 # Pre-requisites:
+#   - Data: '02-analysis_data/sp500.parquet', '02-analysis_data/value_spread.parquet'
+#   - Data: '00-simulated_data/efficient_market_prices.parquet', '00-simulated_data/inefficient_market_prices.parquet',
+#           '00-simulated_data/evolutionary_market_prices.parquet'
+#   - `pandas` must be installed (pip install pandas)
+#   - `matplotlib` must be installed (pip install matplotlib)
+#   - `numpy` must be installed (pip install numpy)
 
 
 #### Workspace setup ####
