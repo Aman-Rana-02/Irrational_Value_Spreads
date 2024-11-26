@@ -3,9 +3,9 @@
 this is an extreme assumption, it is established that markets tend to some form of efficiency. In an efficient market, investors are compensated for taking on systematic risk, therefore, understanding the level of 
 market efficiency can be used to asses whether market participants will be rewarded fairly for the risks they bear.
 
-"Value" in classical factor investing refers to stocks with high book-to-market ratios as per \citet{fama_french_1993} being considered undervalued. Being exposed to the Value factor means
-going long on stocks that exhibit an undervalued nature, and short on stocks that exhibit an overvalued nature in order to capture the value premium. 
-Its relationship with market efficiency is critical: if markets are efficient, an investor should be rewarded for holding a portfolio of under-valued stocks. 
+"Value" in classical factor investing refers to stocks with low price-to-book ratios as per \citet{fama_french_1993} being considered undervalued. Being exposed to the Value factor means
+going long on stocks that exhibit an undervalued nature, and short on stocks that exhibit an overvalued nature in order to capture the value premium; compensation for the risk of holding undervalued companies. 
+Its relationship with market efficiency is critical: if markets are efficient, an investor should be rewarded for risk. 
 However, when inefficiencies arise, value stocks may become mispriced, with the market willing to pay more for already 'expensive' stocks, and
 less for already 'cheap' stocks. In these periods, investors may consider that the definition of value has changed, the subjective measure of 
 'expensive' and 'cheap' has shifted. We can define a value spread as the ratio of the value of expensive stocks to the value of cheap stocks.
@@ -21,7 +21,7 @@ This method visually shows us how prices adjust to information flow, in speed, a
 which is useful in an approach for measuring efficiency.
 
 Our estimand is Market Inefficiency, which we define as the relative level of the markets ability to price in future information.
-Building on this, we introduce the \textit{$Beta\_SSE$} score, which measures market efficiency at a point in time. 
+Building on this, we introduce the \textit{$Beta\_SSE$} estimate, which measures market efficiency at a point in time. 
 By applying unbiasedness regressions within a rolling window, and constructing the \textit{$Beta\_SSE$} representation, we create a time series that tracks the relative level of market 
 efficiency. \newline
 \newline
@@ -34,4 +34,4 @@ Our findings show that:
 
 The rest of the paper is structured as follows: Section \ref{sec:data} describes the data used in this analysis. Section \ref{sec:market_efficiency} outlines the methodology used to measure market inefficiency.
 Section \ref{sec:results} presents the results of our analysis. Section \ref{sec:conclusion} concludes and discusses the implications of our findings. 
-Section \ref{sec:appendix} provides additional details on the methodology and results.
+Section \ref{sec:appendix} provides additional details on the methodology.

@@ -33,13 +33,11 @@ The regression is repeated for $t=2, t=3, ..., t=36$, and the coefficients $\bet
     \label{fig:sp_500_unbiasedness}
 \end{figure}
 
-% THIS IS COPIED FROM CHARLES CHANGE THIS IN DRAFT UPDATE
-When log prices form a random-walk with drift, as in efficient markets, $\beta_t = 1$ for all $t$. 
-As per \citet{mincer_zarnowitz_1969}, when $\beta_t = 1$, the partial return from $0$ to $t$ provides an "efficient" forecast of the return
-from $t$ to $T$. 2, in the sense that no amplification or attenuation of the partial return can improve the residual variance
-of the forecast error. If $\beta_t < 1$, then the partial return is attenuated or partially reversed in the total return, which is often interpreted as a symptom of price noise,
-a temporary component in prices, or “overreaction” \citep{barclay_hendershott_2003}. Conversely, if $\beta_t > 1$, the partial return is amplified in the total return, suggesting “underreaction” or slow information processing.
-% THIS IS COPIED FROM CHARLES CHANGE THIS IN DRAFT UPDATE
+$\beta_t = 1$ for all $t$ when log prices move efficiently, following a random walk. When 
+$\beta_t = 1$ the partial returns from $0$ to $t$ provide a forecast of the return from $t$ to $T$ \citep{mincer_zarnowitz_1969}
+ that is as efficient as possible and do not need to be amplified or dampened. 
+ If $\beta_t < 1$, the partial return is dampened in the total returns, there fore there was a temporary component in prices which decays representing an “overreaction” \citep{barclay_hendershott_2003}.
+Conversely, if $\beta_t > 1$, the partial return is amplified in the total return, suggesting the market has improperly processed the information and has underreacted.
 
 In this paper we will be focusing on the $\beta_t$ coefficient, but an explanation of the $R^2$ is provided in the Appendix for completeness. 
 We now have the foundation to construct a score for market efficiency.

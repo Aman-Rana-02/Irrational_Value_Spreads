@@ -31,9 +31,10 @@ By taking expanding window sums of the columns of log returns, we get a cumulati
 
 \subsection{The Value Spread}
 
-The value spread is the ratio of the book-to-market of the portfolio of the portfolio of the most expensive 30\% of stocks to the book-to-market of the portfolio of the cheapest 30\% of stocks, as per \citet{fama_french_1993}.
+The value spread is the ratio of the price-to-book of the portfolio of the portfolio of the most expensive 30\% of stocks to the price-to-book of the portfolio of the cheapest 30\% of stocks, as per \citet{fama_french_1993}.
 To construct this measure we use Kenneth French's data library \citep{french_website}. 
-We get the annual Sum of BE / Sum of ME for the large-cap top $30\%$ portfolio and bottom $30\%$ portfolio directly from the library, and then calculate the value spread as the ratio of the two. The time series of the Value Spread can be found in
+Using French’s 3x2 sort on price-to-book and market equity, we get the monthly market value weighted average of the price-to-book of the portfolio of the 30\% most expensive large-cap stocks and the portfolio of the 30\% cheapest large-cap stocks. The value spread is the ratio of these two portfolios.
+It represents how much more expensive the expensive stocks are compared to the cheap stocks.
  Figure~\ref{fig:value_spread}.
 
 \begin{figure}[h!]
