@@ -1,14 +1,14 @@
-\section{Methodology}
+\section{Measurement of Market Efficiency}
+\label{sec:market_efficiency}
 
-For the purposes of this paper we look at monthly returns of the S\&P 500 from January 1927 to October 2024, but the methodology can be 
-applied to any window at any frequency. I show an example of daily returns around earnings versus non-earnings months in the Appendix to build the intuition
-of interpreting the unbiasedness regression results.
+In this section, we will introduce the $Beta\_SSE$ score, which is a measure of market efficiency based on the unbiasedness regressions framework.
 
 \subsection{Unbiasedness Regressions}
 
 \noindent The unbiasedness regression is a simple OLS regression of the cumulative logarithmic return of the asset over a normalized window of time $\mathrm{SP500}_{[0, T]}$, on a subset of the
-logarithmic cumulative returns, $\mathrm{SP500}_{[0, t]}$, where $t \leq T$, and $t$ is the number of months from the beginning of the window. \footnote{$\mathrm{SP500}_{[0, 1]}$ is the matrix of returns of the SP500 from January 1927 to February 1927, February 1927 to March 1927, \dots, August 2024 to September 2024, September 2024 to October 2024.\newline
-$\mathrm{SP500}_{[0, 2]}$ would be the matrix of returns from January 1927 to March 1927, February 1927 to April 1927, \dots August 2024 to October 2024, and so on for the entire dataset.}
+logarithmic cumulative returns, $\mathrm{SP500}_{[0, t]}$, where $t \leq T$, and $t$ is the number of months from the beginning of the window.
+ \footnote{$\mathrm{SP500}_{[0, 1]}$ is the matrix of returns of the SP500 from January 1950 to February 1950, February 1950 to March 1950, \dots, August 2024 to September 2024, September 2024 to October 2024.\newline
+$\mathrm{SP500}_{[0, 2]}$ would be the matrix of cumulative returns from January 1950 to March 1950, February 1950 to April 1950, \dots August 2024 to October 2024, and so on for the entire dataset.}
 
 \begin{equation}
     \begin{aligned}
@@ -29,7 +29,7 @@ The regression is repeated for $t=2, t=3, ..., t=36$, and the coefficients $\bet
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{../figs/SP500 Market Inefficiency.png}
-    \caption{An example of an unbiasedness regression on the SP500 (1927 - 2024)}
+    \caption{An example of an unbiasedness regression on the SP500 (1950 - 2024)}
     \label{fig:sp_500_unbiasedness}
 \end{figure}
 
@@ -65,19 +65,3 @@ $t - 5 \times 12$ to $t$.
 
 Where $\beta_{t,i}$ is the $\beta$ coefficient from the unbiasedness regression from a 
 window ending on the date $t$, at the $i$th depth of the unbiasedness window.
-
-
-\subsection{The Value Spread}
-
-The value spread is the ratio of the book-to-market ratio of the portfolio of the most expensive 30\% of stocks to the book-to-market ratio of the portfolio of the cheapest 30\% of stocks, as per \citet{fama_french_1993}.
-To construct this measure we use Kenneth French's data library \citep{french_website}. 
-We get the annual Sum of BE / Sum of ME for the large-cap top $30\%$ portfolio and bottom $30\%$ portfolio directly from the library, and then calculate the value spread as the ratio of the two. The time series of the Value Spread can be found in
- Figure~\ref{fig:value_spread}, recession periods are shaded in grey.
-
-% I want the  Figure here
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{../figs/Value Spread.png}
-    \caption{The value spread timeseries 1927 - 2024}
-    \label{fig:value_spread}
-\end{figure}

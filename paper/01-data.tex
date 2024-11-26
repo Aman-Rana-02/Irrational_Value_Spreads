@@ -1,1 +1,44 @@
 \section{Data}
+\label{sec:data}
+
+We use Python \citep{python3} to analyze S\&P500 price data from Yahoo Finance \citep{yahoo_finance_gspc} and the Fama-French 3-factor data library \citep{french_website}.
+Yahoo finance provides daily price data of the S\&P500 which we resample to monthly returns for the period 1950 - 2024. We get monthly log returns by taking the
+difference of the log of the adjusted close price of the S\&P500 for each month.
+
+\subsection{Cumulative Log Returns}
+The unbiasedness regression require windows of cumulative returns. For any month t, we get every forward month's returns up to T months.
+By taking expanding window sums of the columns of log returns, we get a cumulative log returns matrix.
+% An illustrative example can be found in Table~\ref{tab:sp500_cumulative_returns}.
+
+% \begin{table}[h!]
+%     \centering
+%     \renewcommand{\arraystretch}{1.5} % Adjust row height
+%     \begin{tabular}{|p{3cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+%         \hline
+%         \textbf{Date} & \shortstack{\textbf{Cumulative}\\\textbf{Returns t=0}} & \shortstack{\textbf{Cumulative}\\\textbf{Returns t=1}} & \shortstack{\textbf{Cumulative}\\\textbf{Returns t=2}} & \shortstack{\textbf{Cumulative}\\\textbf{Returns t=3}} & \shortstack{\textbf{Cumulative}\\\textbf{Returns t=4}} \\
+%         \hline
+%         1950-01-01 & 0.01 & 0.03 & 0.06 & 0.10 & 0.15 \\
+%         1950-02-01 & 0.02 & 0.05 & 0.09 & 0.14 & 0.20 \\
+%         1950-03-01 & 0.03 & 0.07 & 0.12 & 0.18 & 0.25 \\
+%         1950-04-01 & 0.04 & 0.09 & 0.15 & 0.22 & 0.30 \\
+%         1950-05-01 & 0.05 & 0.11 & 0.18 & 0.26 & 0.35 \\
+%         \hline
+%     \end{tabular}
+%     \caption{Example of the SP500 cumulative returns matrix}
+%     \label{tab:sp500_cumulative_returns}
+% \end{table}
+
+
+\subsection{The Value Spread}
+
+The value spread is the ratio of the book-to-market of the portfolio of the portfolio of the most expensive 30\% of stocks to the book-to-market of the portfolio of the cheapest 30\% of stocks, as per \citet{fama_french_1993}.
+To construct this measure we use Kenneth French's data library \citep{french_website}. 
+We get the annual Sum of BE / Sum of ME for the large-cap top $30\%$ portfolio and bottom $30\%$ portfolio directly from the library, and then calculate the value spread as the ratio of the two. The time series of the Value Spread can be found in
+ Figure~\ref{fig:value_spread}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../figs/Value Spread.png}
+    \caption{The value spread timeseries 1950 - 2024}
+    \label{fig:value_spread}
+\end{figure}

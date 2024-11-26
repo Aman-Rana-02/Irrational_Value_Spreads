@@ -104,10 +104,10 @@ def spot_market_inefficiency(regression_results_df):
             continue
         deviation = beta - 1
         # squared_deviation = abs(deviation / se)
-        if se == 0 or abs(deviation / se) <= 1.96:
-            squared_deviation = 0
-        else:
-            squared_deviation = deviation ** 2
+        # if se == 0 or abs(deviation / se) <= 1.96:
+        #     squared_deviation = 0
+        # else:
+        squared_deviation = deviation ** 2
 
         total_sum_squares += squared_deviation
         n_observed += 1

@@ -1,11 +1,12 @@
 \section{Results}
+\label{sec:results}
 
 Using the $Beta\_SSE$ score, we construct a timeseries of the level of market efficiency as seen in Figure~\ref{fig:sp_500_SSE_beta_ts}.
 We shade in grey the recession periods as defined by NBER based Recession Indicators \citep{usrec}
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\textwidth]{../figs/SP500 Rolling Market Inefficiency.png}
-    \caption{The $Beta\_SSE$ score timeseries of the SP500 (1950 - 2024)}
+    \caption{The $Beta\_SSE$ score timeseries of the SP500 (1950 - 2024) showing mean reversion and periods of inefficiency.}
     \label{fig:sp_500_SSE_beta_ts}
 \end{figure}
 
@@ -16,11 +17,11 @@ We also see that the market has been increasingly inefficient in the last decade
 Empirically we can test the mean reversion through an Augmented Dickey-Fuller test \citep{cheung1995lag} on the $Beta\_SSE$ timeseries, which is significant at the 0.1\% level.
 
 Figure~\ref{value_spread_beta_sse} shows the value spread and the $Beta\_SSE$ score timeseries. We see visually that the two are cointegrated, which we test with
-the Engle-Granger two-step cointegration test, which is significant at the 0.5\% level.
+the Engle-Granger two-step cointegration test, which is significant at the 0.1\% level.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\textwidth]{../figs/Value Spread and Market Inefficiency.png}
-    \caption{The value spread and $Beta\_SSE$ score timeseries of the SP500 (1950 - 2024)}
+    \caption{The value spread and market inefficiency move together, and have been increasing in tandem for the last decade.}
     \label{value_spread_beta_sse}
 \end{figure}

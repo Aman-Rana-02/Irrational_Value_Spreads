@@ -32,7 +32,7 @@ evolutionary_df = efficient_df.copy()
 # Simulate efficient market prices
 # Efficient market returns are random, making price a random walk
 efficient_returns = np.random.normal(0, 0.01, len(efficient_df))
-efficient_prices = 100 * (1 + efficient_returns).cumprod()
+efficient_prices = 100 * np.exp(np.cumsum(efficient_returns))
 efficient_df['Adj Close'] = efficient_prices
 
 # Simulate inefficient market prices
@@ -44,7 +44,7 @@ inefficient_returns = np.zeros(len(inefficient_df))
 for t in range(1, len(inefficient_df)):
     inefficient_returns[t] = phi * inefficient_returns[t - 1] + noise[t]
 
-inefficient_prices = 100 * (1 + inefficient_returns).cumprod()
+inefficient_prices = 100 * np.exp(np.cumsum(inefficient_returns))
 inefficient_df['Adj Close'] = inefficient_prices
 
 # Simulate an evolutionary market, which slips in and out of inefficient regimes
@@ -68,7 +68,7 @@ while i < len(evolutionary_returns):
     evolutionary_efficiency_state[i:i + regime_length] = 0
     i += regime_length
 
-evolutionary_prices = 100 * (1 + evolutionary_returns).cumprod()
+evolutionary_prices = 100 * np.exp(np.cumsum(evolutionary_returns))
 evolutionary_df['Adj Close'] = evolutionary_prices
 evolutionary_df['Efficiency State'] = evolutionary_efficiency_state
 
