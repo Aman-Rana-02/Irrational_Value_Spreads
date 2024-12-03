@@ -3,14 +3,14 @@
 
 We use Python \citep{python3} to analyze S\&P500 price data from Yahoo Finance \citep{yahoo_finance_gspc} and the Fama-French 3-factor data library \citep{french_website}.
 Yahoo finance provides daily price data of the S\&P500 which we resample to monthly returns for the period 1950 - 2024. We get monthly log returns by taking the
-difference of the log of the adjusted close price of the S\&P500 for each month (Figure~\ref{fig:sp500-returns}). Our timeseries starts in 1950
-based on the premise that the market prior to this was not as sophisticated prior to this date,
- and is not illustrative for the purposes of this analysis of market efficiency and value spreads \citep{asness_2024}.
+difference of the log of the adjusted close price of the S\&P500 for each month (Figure~\ref{fig:sp500-returns}). Our time series starts in 1950
+based on the premise that the market prior to this was not as sophisticated, and is not illustrative for the purposes of this analysis of market efficiency and value spreads. \citep{asness_2024} justifies this using the 
+instability of value spreads prior to 1950.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=1\textwidth]{../data/03-analysis_data_visuals/sp500_log_price.png}
-    \caption{The S\&P500 timeseries 1950 - 2024.}
+    \caption{The S\&P500 time series 1950 - 2024.}
     \label{fig:sp500-returns}
 \end{figure}
 
@@ -21,14 +21,14 @@ By taking expanding window sums of the columns of log returns, we get a cumulati
 
 \subsection{The Value Spread}
 
-The value spread is the ratio of average book-to-market of the most expensive 30\% portfolio to the price-to-book of the portfolio of the cheapest 30\% of stock portfolio, as per \citet{fama_french_1993}.
+The value spread is a ratio of the average book-to-market of the most expensive 30\% portfolio to the average book-to-market of the portfolio of the cheapest 30\% of stock portfolio, as per \citet{fama_french_1993}.
 To construct this measure we use Kenneth French's data library \citep{french_website}. 
-Using French's 3x2 sort on book-to-market and market equity, we get the monthly market value weighted average of the book-to-value of the portfolio of the 30\% most expensive large-cap stocks and the portfolio of the 30\% cheapest large-cap stocks. The value spread is the ratio of these two averages.
-It represents how much more expensive the expensive stocks are compared to the cheap stocks (Figure~\ref{fig:value_spread}).
+Using French's 3x2 sort on book-to-market and market equity, we get the monthly market value weighted average of the book-to-value of the portfolio of the 30\% most expensive large-cap stocks and the portfolio of the 30\% cheapest large-cap stocks.
+Dividing the two averages represents how much more expensive the expensive stocks are compared to the cheap stocks (Figure~\ref{fig:value_spread}), or how much more the market is willing to pay for growth versus value stocks.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=1\textwidth]{../figs/Value Spread.png}
-    \caption{The value spread timeseries 1950 - 2024. \citet{asness_2024} argues the widening spread in the last decade is due to increasing market inefficiency.}
+    \caption{The value spread time series 1950 - 2024. \citet{asness_2024} argues the widening spread in the last decade is due to increasing market inefficiency.}
     \label{fig:value_spread}
 \end{figure}

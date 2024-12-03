@@ -1,4 +1,5 @@
 \section{Introduction}
+\subsection{Market Efficiency}
 \indent \citet{fama_EMH} defines markets to be informationally efficient if prices at
  every moment incorporate all available information about future values rationally and instantaneously.
  This is an intuitive result if we consider that market participants bid prices up once presented with information that
@@ -9,36 +10,39 @@
 taking systematic risk. The expected returns of risky assets must be higher on average because investors 
 require a risk premium to bear the additional uncertainty associated with risky assets.
 
+\subsection{Value Risk}
 `Value' in factor investing is an example of one such systematic risk. Its classical definition is the book-to-market ratio; the book value of equity of a firm divided by its market capitalization.
 According to \citet{fama_french_1993}, firms with high book-to-market ratios (value stocks) tend to outperform those with low book-to-market ratios (growth stocks) over time, 
 as this factor captures a systematic risk associated with the financial distress or other underlying characteristics of value firms.
 Value is a relative measure, there is no threshold that defines a stock as `cheap' or `expensive'. 
 
+\subsection{Value Spread}
 \citet{asness_2024} defines the value spread as the ratio of the average book-to-market of a portfolio of `expensive' stocks to the average book-to-market of
 a portfolio of `cheap' stocks. The value spread can be interpreted as how much more the market is willing to pay for 
-already `expensive' stocks than `cheap' stocks. He uses this measure of value spread in a timeseries, showing that the spread has been increasing steadily for the last decade
+already `expensive' stocks than `cheap' stocks. He uses this measure of value spread in a time series, showing that the spread has been increasing steadily for the last decade
 and proposes that this widening is due to market inefficiency. His claim is that the widening spread has no fundamental backing, the market is irrationally paying
 more for `expensive' stocks, and therefore it takes longer for market participants to be appropriately rewarded for holding value risk.
 His justification lies in his market experience, and that papers that try to justify that the relative definition of `value' has fundamentally changed, are inconclusive.
 % However, when inefficiencies arise, value stocks may become mispriced, with the market willing to pay more for already `expensive' growth stocks, and
 % less for already `cheap' value stocks. 
 
-In this paper I use an inverted approach to investigate the value spread. I propose a measure for market informational efficiency, and provide a time series
+\subsection{Inefficient Value Spreads}
+In this paper I use a direct approach to investigate the efficiency of the value spread. I propose a measure for market informational inefficiency, and provide a time series
 of this measure. Asness justifies his conclusion by contradiction, he presents possible explanations for the value spread, and that they don't work. I am investigating
 the same phenomena more directly, by constructing a measure of market efficiency and showing its movement with the value spread.
 
 Existing methods for measuring market efficiency typically focus on testing whether stock prices follow a random walk
 \citep{fama_random_walk} \citep{lim_brooks_2010}. However, these methods do not represent the variation of efficiency over time.
-A more dynamic approach is needed to investigate a timeseries of inefficiency.
+A more dynamic approach is needed to investigate a time series of inefficiency.
 
 \citet{boguth_2023} uses unbiasedness regressions to examine price informativeness around FOMC meetings. 
 This method visually shows us how prices adjust to information flow, in speed, and under or overreaction, using $R^2$s and $\beta$s over the unbiasedness regression window.
 Unbiasedness regressions provide us with a tool to measure the market's digestion of information, from which I can construct a measure of market efficiency.
 
-Our estimand is Market Inefficiency, which we define as the relative level of the market's ability to price in future information.
+Our estimand is market inefficiency, which we define as the relative level of the market's error in its present value of future prices, when using available information.
 Building on this, we introduce the \textit{$Beta\_SSE$} estimate, which measures market efficiency at a point in time. 
 By applying unbiasedness regressions within a rolling window, and constructing the \textit{$Beta\_SSE$} representation, we create a time series that tracks the relative level of market 
-efficiency. \newline
+inefficiency. \newline
 \newline
 Our findings show that:
 \begin{itemize}

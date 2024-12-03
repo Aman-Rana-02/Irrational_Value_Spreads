@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 from statsmodels.tsa.stattools import adfuller
 from statsmodels.tsa.stattools import coint
+from scipy.stats import spearmanr
 
 value_inefficiency_df = pd.read_parquet('../data/02-analysis_data/efficiency_and_value.parquet')
 value_inefficiency_df.set_index('Date', inplace=True)
@@ -48,6 +49,11 @@ print(f'ADF p-value: {result[1]}')
 result = coint(value_inefficiency_df['Market Inefficiency'],
                value_inefficiency_df['Value Spread'].diff().fillna(0))
 print(f'Engle-Granger p-value: {result[1]}')
+
+#Spearman Correlation
+last_decade_df = value_inefficiency_df.loc['2009-01-01':].rolling(window=60).mean().dropna()
+result = spearmanr(last_decade_df['Market Inefficiency'], last_decade_df['Value Spread'])
+print(f'Spearman Correlation: {result.correlation}')
 
 #Plot Value Spread vs Market Efficiency
 fig, ax1 = plt.subplots(figsize=(14, 7))
