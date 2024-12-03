@@ -18,7 +18,8 @@ import pandas as pd
 import warnings
 import matplotlib.pyplot as plt
 from utils.utils import (robustness_regression, spot_market_inefficiency, rolling_robustness_regressions,
-                         get_return_windows, plot_market_inefficiency, plot_rolling_market_inefficiency)
+                         get_return_windows, plot_market_inefficiency, plot_rolling_market_inefficiency,
+                         plot_spot_market_inefficiency_score)
 warnings.filterwarnings("ignore", category=pd.errors.SettingWithCopyWarning)
 #### Read data ####
 
@@ -49,6 +50,7 @@ evolutionary_market_market_inefficiency = spot_market_inefficiency(evolutionary_
 
 # Plot market inefficiency
 plot_market_inefficiency(all_time_regression_results, 'SP500 Market Inefficiency')
+plot_spot_market_inefficiency_score(all_time_regression_results, 'Spot SP500 Market Inefficiency Score')
 plot_market_inefficiency(efficient_market_regression_results, 'Simulated Efficient Market Inefficiency')
 plot_market_inefficiency(inefficient_market_regression_results, 'Simulated Inefficient Market Inefficiency')
 plot_market_inefficiency(evolutionary_market_regression_results, 'Simulated Evolutionary Market Inefficiency')
@@ -81,7 +83,7 @@ plt.title('Simulated Evolutionary Market Rolling Inefficiency')
 plt.xlabel('Date')
 plt.ylabel('Market Inefficiency')
 plt.legend()
-plt.savefig('../figs/Simulated Evolutionary Market Rolling Inefficiency.png')
+plt.savefig('../figs/Simulated Evolutionary Market Rolling Inefficiency.png', dpi=300, bbox_inches='tight')
 
 value_spread = pd.read_parquet('../data/02-analysis_data/value_spread.parquet')
 value_spread = value_spread[value_spread['Date'] >= '1950-01-01']
@@ -91,7 +93,7 @@ plt.title('Value Spread')
 plt.xlabel('Date')
 plt.ylabel('Value Spread')
 plt.legend()
-plt.savefig('../figs/Value Spread.png')
+plt.savefig('../figs/Value Spread.png', dpi=300, bbox_inches='tight')
 
 value_inefficiency_df = pd.merge(spy_df[['Date', 'Market Inefficiency']], value_spread, on='Date', how='inner')
 value_inefficiency_df.to_parquet('../data/02-analysis_data/efficiency_and_value.parquet')

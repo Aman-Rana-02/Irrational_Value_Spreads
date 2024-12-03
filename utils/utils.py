@@ -24,11 +24,6 @@ def get_return_windows(df, return_window = 36):
     :return:
     '''
     for i in range(0, return_window + 1):
-        # In the preceding T=return_window period, returns were Eff/Ineff
-        # df[f'Log Return t={i}'] = df['Log Return'].shift(return_window - i)
-
-        #TODO: Speak to Charles.
-        # In the forward T=return_window period, returns were Eff/Ineff
         df[f'Log Return t={i}'] = df['Log Return'].shift(-i)
 
     df[f'Log Return t={0}'] = 0
@@ -53,7 +48,42 @@ def plot_market_inefficiency(df, title):
     plt.title(title)
     plt.xlabel('Window Size')
     plt.ylabel('Beta')
-    plt.savefig(f'../figs/{title}.png')
+    plt.grid(True, which='both', linestyle='--', linewidth=0.5)
+
+    plt.savefig(f'../figs/{title}.png', dpi=300, bbox_inches='tight')
+
+
+def plot_spot_market_inefficiency_score(df, title):
+    '''
+    Plots the market inefficiency over time with additional visual aids.
+    Expects a dataframe with a 'beta' column.
+    :param df: DataFrame with 'beta' column
+    :param title: Title for the plot
+    :return: None
+    '''
+    plt.figure(figsize=(10, 5))
+    plt.plot(df.index, df['beta'], label='Beta', marker='o')
+
+    # Add dotted line at Beta=1
+    plt.axhline(y=1, color='black', linestyle='--', linewidth=1, label='Beta = 1')
+
+    # Add red vertical lines connecting each point to Beta=1
+    for idx, beta in zip(df.index, df['beta']):
+        # Skip the first point
+        if idx == df.index[0]:
+            continue
+        plt.plot([idx, idx], [beta, 1], color='red', linestyle='-', linewidth=1)
+
+    # Add labels and title
+    plt.title(title)
+    plt.xlabel('Window Size')
+    plt.ylabel('Beta')
+    plt.legend()
+    plt.grid(True, which='both', linestyle='--', linewidth=0.5)
+
+    # Save the plot as a PNG file
+    plt.savefig(f'../figs/{title}.png', dpi=300, bbox_inches='tight')
+    plt.show()
 
 def plot_rolling_market_inefficiency(df, title):
     '''
@@ -66,7 +96,7 @@ def plot_rolling_market_inefficiency(df, title):
     plt.title(title)
     plt.xlabel('Date')
     plt.ylabel('Market Inefficiency')
-    plt.savefig(f'../figs/{title}.png')
+    plt.savefig(f'../figs/{title}.png', dpi=300, bbox_inches='tight')
 
 def robustness_regression(df, lag_range=(0, 36)):
     '''

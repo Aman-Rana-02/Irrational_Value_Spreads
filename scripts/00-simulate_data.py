@@ -41,6 +41,7 @@ phi = 0.5
 noise = np.random.normal(0, 0.01, len(inefficient_df))
 inefficient_returns = np.zeros(len(inefficient_df))
 
+#Consider shocks to the system.
 for t in range(1, len(inefficient_df)):
     inefficient_returns[t] = phi * inefficient_returns[t - 1] + noise[t]
 

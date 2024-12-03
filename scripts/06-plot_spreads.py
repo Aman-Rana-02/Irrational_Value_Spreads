@@ -32,7 +32,7 @@ color = 'tab:blue'
 ax2.set_ylabel('Value Spread', color=color)  # we already handled the x-label with ax1
 ax2.plot(value_inefficiency_df['Value Spread'], color=color)
 ax1.set_title('Timeseries of the Value Spread and Market Inefficiency')
-plt.savefig('../figs/Value Spread and Market Inefficiency.png')
+plt.savefig('../figs/Value Spread and Market Inefficiency.png', dpi=300, bbox_inches='tight')
 plt.close()
 
 # Perform decomposition
@@ -61,4 +61,4 @@ color = 'tab:blue'
 ax2.set_ylabel('Value Spread', color=color)  # we already handled the x-label with ax1
 ax2.plot(value_result.trend, color=color)
 ax1.set_title('Timeseries of the Value Spread and Market Inefficiency')
-plt.savefig('../figs/Trends of Value Spread and Market Inefficiency.png')
+plt.savefig('../figs/Trends of Value Spread and Market Inefficiency.png', dpi=300, bbox_inches='tight')
