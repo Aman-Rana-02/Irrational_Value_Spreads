@@ -1,16 +1,16 @@
 \section{Data}
 \label{sec:data}
 
-We use Python \citep{python3} to analyze S\&P500 price data from Yahoo Finance \citep{yahoo_finance_gspc} and the Fama-French 3-factor data library \citep{french_website}.
-Yahoo finance provides daily price data of the S\&P500 which we resample to monthly returns for the period 1950 - 2024. We get monthly log returns by taking the
-difference of the log of the adjusted close price of the S\&P500 for each month (Figure~\ref{fig:sp500-returns}). Our time series starts in 1950
+We use Python \citep{python3} to analyze S\&P 500 price data from Yahoo Finance \citep{yahoo_finance_gspc} and the Fama-French 3-factor data library \citep{french_website}.
+Yahoo finance provides daily price data of the S\&P 500 which we resample to monthly returns for the period 1950 - 2024. We get monthly log returns by taking the
+difference of the log of the adjusted close price of the S\&P 500 for each month (Figure~\ref{fig:sp500-returns}). Our time series starts in 1950
 based on the premise that the market prior to this was not as sophisticated, and is not illustrative for the purposes of this analysis of market efficiency and value spreads. \citep{asness_2024} justifies this using the 
 instability of value spreads prior to 1950.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=1\textwidth]{../data/03-analysis_data_visuals/sp500_log_price.png}
-    \caption{The S\&P500 time series 1950 - 2024.}
+    \caption{The S\&P 500 time series 1950 - 2024.}
     \label{fig:sp500-returns}
 \end{figure}
 
@@ -32,3 +32,10 @@ Dividing the two averages represents how much more expensive the expensive stock
     \caption{The value spread time series 1950 - 2024. \citet{asness_2024} argues the widening spread in the last decade is due to increasing market inefficiency.}
     \label{fig:value_spread}
 \end{figure}
+
+\subsection{Measurement}
+We use cumulative log returns of the S\&P 500 because every cumulative return window represents the information content of that time period. Partial cumulative return
+windows demonstrate the information content up to a point in the entire period. Using the subsets of a cumulative window period together, we get an idea of the
+information flows within the wider cumulative period window. We use the S\&P 500 because its returns are more representative of the average market information ability
+than the returns for a single firm, which would be subject to idiosyncratic shocks. The S\&P 500 also represents larger firms, which are heavily observed by market participants, and have well-regulated information flow, 
+so should represent the most efficiently priced index. I expand on how these components representing information flow lead to a measure of market inefficiency in Section~\ref{sec:market_efficiency}.
