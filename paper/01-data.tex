@@ -1,12 +1,12 @@
 \section{Data}
 \label{sec:data}
 
-We use Python \citep{python3} to analyze S\&P 500 price data from Yahoo Finance \citep{yahoo_finance_gspc} and the Fama-French 3-factor data library \citep{french_website}.
+We use Python \citep{python3}, Pandas \citep{reback2020pandas}, NumPy \citep{harris2020array}, and Arch \citep{sheppard2024arch} to analyze S\&P 500 price data from Yahoo Finance \citep{yahoo_finance_gspc} and the Fama-French 3-factor data library \citep{french_website}.
 Yahoo finance provides daily price data of the S\&P 500 which we resample to monthly returns for the period 1950 - 2024. We get monthly log returns by taking the
 difference of the log of the adjusted close price of the S\&P 500 for each month (Figure~\ref{fig:sp500-returns}). Our time series starts in 1950
 based on the premise that the market prior to this was not as sophisticated, and is not illustrative for the purposes of this analysis of market efficiency and value spreads. \citep{asness_2024} justifies this using the 
 instability of value spreads prior to 1950. We use the log of the adjusted close price to account for stock splits and dividends, and to make the returns more comparable over time.
-
+We use Matplotlib for plotting \citep{Hunter2007}.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=1\textwidth]{../figs/SP500 Log Price.png}
