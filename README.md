@@ -17,7 +17,9 @@ The repo is structured as:
 
 ## Statement on LLM usage
 
-Aspects of the code were written with the help of the auto-complete tool, GitHub copilot.
+Aspects of the code were written with the help of the auto-complete tool, GitHub copilot. Examples include plotting functions, Latex tables, and autocomplete for simpler expressions.
+
+ChatGPT was used in a final review of the paper. The usage is documented in the `other` folder under `llm_usage/usage.txt`.
 
 ## Contact
 I can be reached at aman.rana@rotman.utoronto.ca
