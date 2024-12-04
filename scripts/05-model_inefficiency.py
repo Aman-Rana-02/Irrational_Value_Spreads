@@ -7,7 +7,6 @@
 # Pre-requisites:
 #   - Data: '02-analysis_data/sp500.parquet', '02-analysis_data/value_spread.parquet'
 #   - Data: '00-simulated_data/efficient_market_prices.parquet', '00-simulated_data/inefficient_market_prices.parquet',
-#           '00-simulated_data/evolutionary_market_prices.parquet'
 #   - `pandas` must be installed (pip install pandas)
 #   - `matplotlib` must be installed (pip install matplotlib)
 #   - `numpy` must be installed (pip install numpy)
@@ -26,7 +25,8 @@ warnings.filterwarnings("ignore", category=pd.errors.SettingWithCopyWarning)
 spy_df = pd.read_parquet('../data/02-analysis_data/sp500.parquet')
 efficient_market_df = pd.read_parquet('../data/00-simulated_data/efficient_market_prices.parquet')
 inefficient_market_df = pd.read_parquet('../data/00-simulated_data/inefficient_market_prices.parquet')
-evolutionary_market_df = pd.read_parquet('../data/00-simulated_data/evolutionary_market_prices.parquet')
+multiple_efficient_df = pd.read_parquet('../data/00-simulated_data/multiple_efficient_market_prices.parquet')
+multiple_inefficient_df = pd.read_parquet('../data/00-simulated_data/multiple_inefficient_market_prices.parquet')
 
 # 1950 onwards
 spy_df = spy_df[spy_df['Date'] >= '1950-01-01']
@@ -44,46 +44,29 @@ inefficient_market_df = get_return_windows(inefficient_market_df)
 inefficient_market_regression_results = robustness_regression(inefficient_market_df)
 inefficient_market_market_inefficiency = spot_market_inefficiency(inefficient_market_regression_results)
 
-evolutionary_market_df = get_return_windows(evolutionary_market_df)
-evolutionary_market_regression_results = robustness_regression(evolutionary_market_df)
-evolutionary_market_market_inefficiency = spot_market_inefficiency(evolutionary_market_regression_results)
+multiple_efficient_regression_results = robustness_regression(multiple_efficient_df)
+multiple_efficient_market_inefficiency = spot_market_inefficiency(multiple_efficient_regression_results)
+
+multiple_inefficient_regression_results = robustness_regression(multiple_inefficient_df)
+multiple_inefficient_market_inefficiency = spot_market_inefficiency(multiple_inefficient_regression_results)
 
 # Plot market inefficiency
-plot_market_inefficiency(all_time_regression_results, 'SP500 Market Inefficiency')
 plot_spot_market_inefficiency_score(all_time_regression_results, 'Spot SP500 Market Inefficiency Score')
+plot_market_inefficiency(all_time_regression_results, 'SP500 Market Inefficiency')
 plot_market_inefficiency(efficient_market_regression_results, 'Simulated Efficient Market Inefficiency')
 plot_market_inefficiency(inefficient_market_regression_results, 'Simulated Inefficient Market Inefficiency')
-plot_market_inefficiency(evolutionary_market_regression_results, 'Simulated Evolutionary Market Inefficiency')
+plot_market_inefficiency(multiple_efficient_regression_results, 'Simulated Multiple Efficient Market Price Paths Inefficiency')
+plot_market_inefficiency(multiple_inefficient_regression_results, 'Simulated Multiple Inefficient Market Price Paths Inefficiency')
 
 ### For each month get market efficiency ###
 spy_df = rolling_robustness_regressions(spy_df, window_size=5 * 12)
 efficient_market_df = rolling_robustness_regressions(efficient_market_df, window_size=5*12)
 inefficient_market_df = rolling_robustness_regressions(inefficient_market_df, window_size=5*12)
-evolutionary_market_df = rolling_robustness_regressions(evolutionary_market_df, window_size=5*12)
 
 # Plot rolling market inefficiency
 plot_rolling_market_inefficiency(spy_df, 'SP500 Rolling Market Inefficiency')
 plot_rolling_market_inefficiency(efficient_market_df, 'Simulated Efficient Market Rolling Inefficiency')
 plot_rolling_market_inefficiency(inefficient_market_df, 'Simulated Inefficient Market Rolling Inefficiency')
-
-#Special Case of Evolutionary Market
-plt.figure(figsize=(10, 5))
-
-plt.plot(evolutionary_market_df['Date'], evolutionary_market_df['Market Inefficiency'], label='Market Inefficiency')
-
-for i in range(len(evolutionary_market_df) - 1):
-    if evolutionary_market_df['Efficiency State'].iloc[i] == 0:
-        plt.axvspan(
-            evolutionary_market_df['Date'].iloc[i],
-            evolutionary_market_df['Date'].iloc[i + 1],
-            color='grey',
-            alpha=0.5
-        )
-plt.title('Simulated Evolutionary Market Rolling Inefficiency')
-plt.xlabel('Date')
-plt.ylabel('Market Inefficiency')
-plt.legend()
-plt.savefig('../figs/Simulated Evolutionary Market Rolling Inefficiency.png', dpi=300, bbox_inches='tight')
 
 value_spread = pd.read_parquet('../data/02-analysis_data/value_spread.parquet')
 value_spread = value_spread[value_spread['Date'] >= '1950-01-01']

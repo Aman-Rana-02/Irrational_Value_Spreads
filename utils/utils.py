@@ -83,7 +83,6 @@ def plot_spot_market_inefficiency_score(df, title):
 
     # Save the plot as a PNG file
     plt.savefig(f'../figs/{title}.png', dpi=300, bbox_inches='tight')
-    plt.show()
 
 def plot_rolling_market_inefficiency(df, title):
     '''

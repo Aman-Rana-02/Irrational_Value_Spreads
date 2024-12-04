@@ -6,7 +6,7 @@
 \usepackage{babel}
 \usepackage{blindtext}
 \usepackage[nodayofweek,level]{datetime}
-\newdate{date}{24}{11}{2024}
+\newdate{date}{03}{12}{2024}
 \date{\displaydate{date}}
 \usepackage[a4paper,margin=1in]{geometry}
 \usepackage{graphicx}
@@ -33,7 +33,7 @@
 
   \begin{abstract}
     \noindent Extending the work of \citet{boguth_2023}, we propose a method to measure the level of market inefficiency using unbiasedness regressions.
-    We find that the market is not uniformly efficient and goes through periods of higher inefficiency reverting to efficiency We find that the value spread—the ratio of the average book-to-market of expensive stocks to that of cheap stocks—is cointegrated with market inefficiency. 
+    We find that the market is not uniformly efficient and goes through periods of higher inefficiency reverting to efficiency. We find that the value spread—the ratio of the average book-to-market of expensive stocks to that of cheap stocks—is correlated with market inefficiency. 
     By demonstrating that wider value spreads comove with our measure of market inefficiency, we can empirically support \citet{asness_2024}'s intuition 
     that high spreads during events such as the dot-com bubble and COVID-19 could reflect mispricing rather than fundamental changes in the notion of value. 
     This evidence strengthens the case that the value premium is still alive but has been masked by market inefficiency. 
@@ -46,7 +46,6 @@
   \newpage
   \input{00-introduction}
 
-  \newpage
   \input{01-data}
 
   \input{02-unbiasedness_regressions}

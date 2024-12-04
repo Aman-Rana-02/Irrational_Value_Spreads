@@ -5,12 +5,12 @@ We use Python \citep{python3} to analyze S\&P 500 price data from Yahoo Finance 
 Yahoo finance provides daily price data of the S\&P 500 which we resample to monthly returns for the period 1950 - 2024. We get monthly log returns by taking the
 difference of the log of the adjusted close price of the S\&P 500 for each month (Figure~\ref{fig:sp500-returns}). Our time series starts in 1950
 based on the premise that the market prior to this was not as sophisticated, and is not illustrative for the purposes of this analysis of market efficiency and value spreads. \citep{asness_2024} justifies this using the 
-instability of value spreads prior to 1950.
+instability of value spreads prior to 1950. We use the log of the adjusted close price to account for stock splits and dividends, and to make the returns more comparable over time.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1\textwidth]{../data/03-analysis_data_visuals/sp500_log_price.png}
-    \caption{The S\&P 500 time series 1950 - 2024.}
+    \includegraphics[width=1\textwidth]{../figs/SP500 Log Price.png}
+    \caption{The S\&P 500 time series 1950 - 2024. We use log-prices, the log of the adjusted and observe this plot, noticing nothing unusual.}
     \label{fig:sp500-returns}
 \end{figure}
 

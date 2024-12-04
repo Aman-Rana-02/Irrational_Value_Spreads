@@ -20,4 +20,4 @@ The repo is structured as:
 Aspects of the code were written with the help of the auto-complete tool, GitHub copilot.
 
 ## Contact
-Aman can be reached at aman.rana@mail.utoronto.ca
+I can be reached at aman.rana@rotman.utoronto.ca
