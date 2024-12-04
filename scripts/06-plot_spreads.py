@@ -39,7 +39,6 @@ plt.close()
 # Perform decomposition
 value_result = seasonal_decompose(value_inefficiency_df['Value Spread'], model="additive", period=4*12)
 eff_result = seasonal_decompose(value_inefficiency_df['Market Inefficiency'], model="additive", period=4*12)
-#TODO: Ask Charles about the seasonality here.
 
 #ADF Test on 'Market Inefficiency'
 result = adfuller(value_inefficiency_df['Market Inefficiency'])
