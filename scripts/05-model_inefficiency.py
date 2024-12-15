@@ -66,7 +66,7 @@ inefficient_market_df = rolling_robustness_regressions(inefficient_market_df, wi
 # Plot rolling market inefficiency
 plot_rolling_market_inefficiency(spy_df, 'SP500 Rolling Market Inefficiency')
 plot_rolling_market_inefficiency(efficient_market_df, 'Simulated Efficient Market Rolling Inefficiency')
-plot_rolling_market_inefficiency(inefficient_market_df, 'Simulated Inefficient Market Rolling Inefficiency')
+plot_rolling_market_inefficiency(inefficient_market_df, 'Simulated_Inefficient_Market_Rolling_Inefficiency')
 
 value_spread = pd.read_parquet('../data/02-analysis_data/value_spread.parquet')
 value_spread = value_spread[value_spread['Date'] >= '1950-01-01']
@@ -76,7 +76,7 @@ plt.title('Value Spread')
 plt.xlabel('Date')
 plt.ylabel('Value Spread')
 plt.legend()
-plt.savefig('../figs/Value Spread.png', dpi=300, bbox_inches='tight')
+plt.savefig('../figs/Value_Spread.png', dpi=300, bbox_inches='tight')
 
 value_inefficiency_df = pd.merge(spy_df[['Date', 'Market Inefficiency']], value_spread, on='Date', how='inner')
 value_inefficiency_df.to_parquet('../data/02-analysis_data/efficiency_and_value.parquet')

@@ -31,7 +31,7 @@ plt.plot(sp500['Date'], sp500['Adj Close'])
 plt.title('SP500 Price Data')
 plt.xlabel('Date')
 plt.ylabel('Price')
-plt.savefig('../figs/SP500 Price History.png')
+plt.savefig('../figs/SP500_Price_History.png')
 plt.close()
 
 # Plot market data
@@ -40,7 +40,7 @@ plt.plot(sp500['Date'], np.log(sp500['Adj Close']))
 plt.title('Log Plot of SP500 Price Data')
 plt.xlabel('Date')
 plt.ylabel('Log Price')
-plt.savefig('../figs/SP500 Log Price.png')
+plt.savefig('../figs/SP500_Log_Price.png')
 plt.close()
 
 #Plot a distribution of Log Returns
@@ -48,7 +48,7 @@ plt.hist(sp500['Log Return'], bins=100)
 plt.title('SP500 Log Return Distribution')
 plt.xlabel('Log Return')
 plt.ylabel('Frequency')
-plt.savefig('../figs/SP500 Log Return.png')
+plt.savefig('../figs/SP500_Log_Return.png')
 plt.close()
 
 #Histogram of Value Spread
@@ -56,6 +56,6 @@ plt.hist(value_spread['Value Spread'], bins=50)
 plt.title('Value Spread Distribution')
 plt.xlabel('Value Spread')
 plt.ylabel('Frequency')
-plt.savefig('../figs/Value Spread Distribution.png')
+plt.savefig('../figs/Value_Spread_Distribution.png')
 plt.close()
 

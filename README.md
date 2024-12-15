@@ -7,9 +7,10 @@ This repo contains the code and data used to generate the results in the paper "
 ## File Structure
 
 The repo is structured as:
-
--   `data/raw_data` contains the raw data as obtained from Yahoo Finance and Kenneth French's Data Library.
--   `data/analysis_data` contains the cleaned dataset that was constructed.
+-   `data/00-simulated_data` contains the simulated data used to test the methodology.
+-   `data/01-raw_data` contains the raw data as obtained from Yahoo Finance and Kenneth French's Data Library.
+-   `data/02-analysis_data` contains the cleaned dataset that was constructed.
+-   `figs` contains the figures generated in the paper.
 -   `other` contains relevant literature, details about LLM chat interactions, and sketches.
 -   `paper` contains the files used to generate the paper, including the latex documents and reference bibliography file, as well as the PDF of the paper.
 -   `scripts` contains the python scripts used to simulate, download and clean data.

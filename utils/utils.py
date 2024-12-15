@@ -50,7 +50,7 @@ def plot_market_inefficiency(df, title):
     plt.ylabel('Beta')
     plt.grid(True, which='both', linestyle='--', linewidth=0.5)
 
-    plt.savefig(f'../figs/{title}.png', dpi=300, bbox_inches='tight')
+    plt.savefig(f'../figs/{title.replace(" ", "_")}.png', dpi=300, bbox_inches='tight')
 
 
 def plot_spot_market_inefficiency_score(df, title):
@@ -82,7 +82,7 @@ def plot_spot_market_inefficiency_score(df, title):
     plt.grid(True, which='both', linestyle='--', linewidth=0.5)
 
     # Save the plot as a PNG file
-    plt.savefig(f'../figs/{title}.png', dpi=300, bbox_inches='tight')
+    plt.savefig(f'../figs/{title.replace(" ", "_")}.png', dpi=300, bbox_inches='tight')
 
 def plot_rolling_market_inefficiency(df, title):
     '''
@@ -95,7 +95,7 @@ def plot_rolling_market_inefficiency(df, title):
     plt.title(title)
     plt.xlabel('Date')
     plt.ylabel('Market Inefficiency')
-    plt.savefig(f'../figs/{title}.png', dpi=300, bbox_inches='tight')
+    plt.savefig(f'../figs/{title.replace(" ", "_")}.png', dpi=300, bbox_inches='tight')
 
 def robustness_regression(df, lag_range=(0, 36)):
     '''
